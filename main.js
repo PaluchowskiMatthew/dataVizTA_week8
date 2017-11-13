@@ -88,7 +88,7 @@ d3.csv("cantons-population.csv", function(data) {
 				.enter()
 				.append("circle")
 				.attr("cx", (d) => projection([d.lon, d.lat])[0])
-				.attr("cy", (d) => projection([d.lon, d.lat])[1] + 11)
+				.attr("cy", (d) => projection([d.lon, d.lat])[1])
 				.attr("r", 5)
 				.style("fill", "#FF0000")
 				.style("opacity", 0.05)
