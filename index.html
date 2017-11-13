@@ -42,8 +42,9 @@ var path = d3.geoPath()               // path generator that will convert GeoJSO
 		  	 .projection(projection);
 
 		
-var color = d3.scaleLinear()
-			  .range(["rgb(213,222,217)","rgb(69,173,168)","rgb(84,36,55)","rgb(217,91,67)"]);
+var color = d3.scaleLog()
+			  .range(["hsl(62,100%,90%)", "hsl(228,30%,20%)"])
+    .interpolate(d3.interpolateHcl);
 
 var svg = d3.select("body")
 			.append("svg")
@@ -80,7 +81,6 @@ for (var i = 0; i < data.length; i++) {
 
 		// Copy the data value into the JSON
 		cantons.features[j].properties.visited = dataValue; 
-
 		// Stop looking through the JSON
 		break;
 		}
@@ -122,10 +122,28 @@ for (var i = 0; i < data.length; i++) {
 // 	}
 // });
 
-  svg.append("path")
-      .datum(cantons)
+  svg.selectAll("path")
+      .data(
+      	function(){
+      		console.log(cantons.features)
+      		return cantons.features})
+      .enter()
+      .append("path")
       .attr("class", "canton")
-      .attr("d", path);
+      .attr("d", path)
+	.style("fill", function(d) {
+
+	// Get data value
+	var value = d.properties.visited;
+
+	if (value) {
+	//If value exists…
+	return color(value);
+	} else {
+	//If value is undefined…
+	return "rgb(213,222,217)";
+	}
+});
       
 
   svg.append("path")

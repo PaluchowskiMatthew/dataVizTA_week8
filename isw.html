@@ -53,6 +53,17 @@ d3.json("ch-cantons.json", function(error, json) {
       .datum(cantons)
       .attr("class", "canton")
       .attr("d", path);
+      //  .style("fill", function(d) {
+//    console.log(d)
+//  // Get data value
+//  var value = d.properties.visited;
+//  console.log(value)
+
+//  if (value) {
+//  //If value exists…
+//  return "rgb(213,222,217)";
+//  }
+// });
 
   svg.append("path")
       .datum(topojson.mesh(json, json.objects.cantons, function(a, b) { return a !== b; }))
