@@ -1,7 +1,7 @@
 # Data Visualization TA. Week 8 solutions
 
 ## Assignment
-In [Google Docs](https://docs.google.com/document/d/1FHFM87AvS_rq2gi7rqV7rIsM4hoopZcr8HDlngrj9tI/edit?usp=sharing).
+Create a choropleth map of Switzerland using D3JS. Color each canton according to its population density. Display Instagram posts' locations on the map. Details and the datasets are in [Google Docs](https://docs.google.com/document/d/1FHFM87AvS_rq2gi7rqV7rIsM4hoopZcr8HDlngrj9tI/edit?usp=sharing).
 
 ## Solution
 [Open](http://blog.miz.space/dataviz/choropleth-switzerland-instagram/) solution in your browser.
